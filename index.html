@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+
+<main>
+
+   
+  
+
+    <section class="container-todolist">
+        <div class="task">
+            
+
+            <div class="form">
+
+                <h3>Crear Tareas</h3>
+                <form id="formulario" action="" >
+                    <input id="tarea" class="input" type="text" placeholder="Tarea" required>
+                    <input id="fecha" class="input" type="date" placeholder="Fecha" required>
+                    <input id="hora" class="input" type="time" placeholder="Hora" required>
+                    <input id="descripcion" class="input" type="text" placeholder="Descripcion" required>
+                    
+                </form>
+
+                <input onclick="GuardarTarea()"  class="btn" type="submit" value="Añadir" >
+               <input onclick="Modificar()"  class="btn" type="submit" value="Modificar" >
+                <!-- <input onclick="CargarTareas()"  class="btn" type="submit" value="Cargar" > -->
+            </div>
+
+            <div class="list-task">
+                
+            </div>
+        </div>
+
+        <div class="listar-tareas">
+            <h3 class="titulo">Lista de Tareas</h3>
+            <div  id="listar" class="tabla">
+            
+               
+                
+            </div>
+        </div>
+        
+
+    </section>
+
+</main>
+<script src="./js/app.js"></script>
+</body>
+</html>
