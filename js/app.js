@@ -60,3 +60,22 @@ function CargarTareas() {
 
     }
 }
+
+function EliminarLista(llave) {
+    //En esta funcion realizamos la eliminacion de la tarea insertada
+    localStorage.removeItem(`${llave}_tarea`);
+    localStorage.removeItem(`${llave}_fecha`);
+    localStorage.removeItem(`${llave}_hora`);
+    localStorage.removeItem(`${llave}_descripcion`);
+
+   
+
+    let tareaDiv = document.getElementById(llave);
+    if (tareaDiv) {
+        tareaDiv.remove(); //Aqui se borra el Div que contine la tarea
+    }
+
+  
+    CargarTareas(); //actualizo tarea
+ 
+}
