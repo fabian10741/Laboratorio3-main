@@ -1,3 +1,5 @@
+//Funcion para agregar al localstorage
+let tareaAeditar = null;
 
 function GuardarTarea() {
     const tarea = document.getElementById("tarea").value;
@@ -78,4 +80,56 @@ function EliminarLista(llave) {
   
     CargarTareas(); //actualizo tarea
  
+}
+
+function Actualizar(llave) {
+    //En esta funcion llamamos los campos a modificar insertados de la tarea
+
+    const tarea = localStorage.getItem(`${llave}_tarea`);
+    const fecha = localStorage.getItem(`${llave}_fecha`);
+    const hora = localStorage.getItem(`${llave}_hora`);
+    const descripcion = localStorage.getItem(`${llave}_descripcion`);
+
+    document.getElementById("tarea").value = tarea;
+    document.getElementById("fecha").value = fecha;
+    document.getElementById("hora").value = hora;
+    document.getElementById("descripcion").value = descripcion;
+
+  
+    tareaAEditar = llave; //se guarda la llave del campo a modificar
+}
+
+function Modificar(llave){
+    // En esta funcion realizamos la modificacion de los campos llamados en  Actualizar 
+    // validacion para editar no en vacio
+    if (!tareaAEditar) {
+        alert("No has seleccionado ninguna tarea para modificar");
+        return;
+    }
+
+    const tarea = document.getElementById("tarea").value;
+    const fecha = document.getElementById("fecha").value;
+    const hora = document.getElementById("hora").value;
+    const descripcion = document.getElementById("descripcion").value;
+
+
+     // Actualizar en localStorage con los cambios
+    localStorage.setItem(`${tareaAEditar}_tarea`, tarea);
+    localStorage.setItem(`${tareaAEditar}_fecha`, fecha);
+    localStorage.setItem(`${tareaAEditar}_hora`, hora);
+    localStorage.setItem(`${tareaAEditar}_descripcion`, descripcion);
+
+    
+   
+    document.getElementById("formulario").reset();
+    tareaAEditar = null; // se reinicia la variable
+    CargarTareas()
+
+}
+
+
+
+
+window.onload = function () {
+    CargarTareas()
 }
